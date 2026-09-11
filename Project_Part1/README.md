@@ -1,91 +1,266 @@
 # FleetDesk
 
-A React computer asset manager for **SE411 Software Construction, Part 1, Fall 2026–27**.
+FleetDesk is a React-based computer asset management application developed for **SE411 Software Construction – Project Part 1, Fall 2026–27**.
 
-FleetDesk lets a company add, display, search, update, and remove computer records. It includes a dashboard, labeled forms, validation, delete confirmation, a team page, automated tests, and project documentation. The only asset category is computers.
-
-**Project status:** the application is implemented, and both students' names and IDs are included. This package is prepared for [222110432-lang/se411_mylabs](https://github.com/222110432-lang/se411_mylabs) in `Project_Part1`. GitHub publication awaits a connection with write access. The team will handle course submission. The original brief's three-person wording and the actual two-person team are documented in [requirements](docs/requirements.md).
-
-## Run the project
-
-Use **Node.js 24** and npm. From the lab repository root, first run `cd Project_Part1`. Then run:
-
-```bash
-npm ci
-npm run dev
-```
-
-Open the local URL printed by Vite. On Windows, `START-WINDOWS.bat` performs the installation if needed and starts the application in a browser. The launcher itself is a convenience script; Windows execution has not been tested in this Linux environment.
-
-To create and preview a production build:
-
-```bash
-npm run build
-npm run preview
-```
-
-The `dist/` folder is the generated static application. Hash navigation and relative build paths allow deployment at a site root or a subdirectory. Do not open `index.html` directly with `file://`; use the development or preview server.
+The application allows a company to manage its computer inventory through a simple interface for adding, viewing, updating, deleting, searching, filtering, and sorting computer records.
 
 ## Features
 
-- **Computers:** inventory table and complete record details.
-- **Add and edit:** shared form with required-field, duplicate, assignment, date, and cost validation.
-- **Delete:** confirmation naming the selected computer.
-- **Search and filters:** multi-word text search, status, department, and sorting.
-- **Overview:** live counts, purchase value in SAR, assignment rate, department allocation, and maintenance queue.
-- **About & team:** a dedicated menu page listing both students' names and IDs.
-- **Responsive interface:** adaptable navigation, forms, cards, and a scrollable inventory table.
+FleetDesk includes:
 
-## Data and Part 1 scope
+- Computer inventory management
+- Add new computer records
+- Edit existing computer records
+- Delete computers with confirmation
+- Search computer records
+- Filter computers by status and department
+- Sort inventory records
+- Dashboard with asset statistics
+- Purchase value and assignment information
+- Department allocation overview
+- Maintenance status tracking
+- Form validation
+- About page with team member information
+- Responsive user interface
+- Automated tests
 
-The application starts with **12 fictional computer objects** from `src/data/seedAssets.js`. `App` owns a copy in React state. Data remains available while navigating the menu, but **refreshing resets the sample data**.
+## Technologies Used
 
-There is no database, backend, API, browser storage, or account system. This follows the Part 1 requirement to use a collection of objects. The assignment reserves manual backend implementation for Part 2. Sample costs and specifications are illustrative, not product quotations.
+- React
+- JavaScript
+- Vite
+- CSS
+- Vitest
+- React Testing Library
+- npm
 
-## Tests and review
+## Project Structure
+
+```text
+Project_Part1/
+├── docs/
+├── public/
+├── scripts/
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── domain/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── tests/
+├── index.html
+├── package.json
+├── package-lock.json
+├── START-WINDOWS.bat
+└── vite.config.js
+```
+
+## Running the Project
+
+### Requirements
+
+Make sure you have:
+
+- Node.js 22.12 or newer
+- npm
+
+### Installation
+
+Open a terminal inside the `Project_Part1` folder and run:
+
+```bash
+npm ci
+```
+
+Then start the development server:
+
+```bash
+npm run dev
+```
+
+Vite will display a local address in the terminal. Open that address in your browser.
+
+### Windows
+
+Windows users can also run:
+
+```text
+START-WINDOWS.bat
+```
+
+This script starts the application using the required npm commands.
+
+## Production Build
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+To preview the production build:
+
+```bash
+npm run preview
+```
+
+## Data
+
+For Part 1, FleetDesk uses a collection of computer objects stored in the frontend.
+
+The application starts with **12 sample computer records** defined in:
+
+```text
+src/data/seedAssets.js
+```
+
+The data is stored in React state while the application is running.
+
+Changes made through the application remain available while navigating between pages, but refreshing the browser resets the data back to the original sample records.
+
+Part 1 does not use:
+
+- A database
+- A backend server
+- An external API
+- User accounts
+
+The backend will be handled separately in Part 2.
+
+## Main Application Functions
+
+### Computer Inventory
+
+Users can view the available computer assets and their information in the inventory table.
+
+Computer records include information such as:
+
+- Computer identification
+- Model and specifications
+- Status
+- Department
+- Assignment information
+- Purchase information
+- Maintenance information
+
+### Add Computer
+
+Users can create a new computer record through the application form.
+
+The form validates required information before the record is added.
+
+### Edit Computer
+
+Existing computer records can be selected and updated using the same validated form.
+
+### Delete Computer
+
+Users can delete a computer record after confirming the operation.
+
+### Search and Filtering
+
+The inventory can be searched and filtered to make computer records easier to locate.
+
+The application supports:
+
+- Text search
+- Status filtering
+- Department filtering
+- Sorting
+
+### Dashboard
+
+The dashboard provides an overview of the computer inventory, including information such as:
+
+- Total computers
+- Assignment status
+- Purchase value
+- Department distribution
+- Maintenance information
+
+### About Page
+
+The application includes an About page that displays the members of the project team and their student IDs.
+
+## Testing
+
+The project includes automated tests for application behavior and domain logic.
+
+Run the full test suite with:
 
 ```bash
 npm test
-npm run test:coverage
-npm run lint
-npm run check:submission
 ```
 
-The full test suite covers domain rules and user-facing React interactions. `docs/testing.md` records the final execution result; `docs/test-results.json` is the machine-readable evidence. To regenerate that evidence:
+Run the coverage report with:
+
+```bash
+npm run test:coverage
+```
+
+Generate the test report with:
 
 ```bash
 npm run test:report
 ```
 
-`check:submission` validates both supplied team identities and the required local documentation. It records the difference between the brief's three-person wording and the actual two-person team; it does not confirm course acceptance of the team size. It does not verify repository visibility or the course submission portal. The repository-root workflow, `../.github/workflows/fleetdesk.yml`, installs the locked dependencies, runs the local readiness check, lint, tests, and a production build for changes to `Project_Part1`. No GitHub-hosted run is claimed before the upload succeeds.
+Run the linter with:
+
+```bash
+npm run lint
+```
+
+The project also includes a submission readiness check:
+
+```bash
+npm run check:submission
+```
 
 ## Documentation
 
-| Document                               | Contents                                                                      |
-| -------------------------------------- | ----------------------------------------------------------------------------- |
-| [Requirements](docs/requirements.md)   | Assignment mapping, acceptance criteria, data rules, pending submission items |
-| [Architecture](docs/architecture.md)   | Component responsibilities, data model, technology stack, data flow           |
-| [Visual design](docs/visual-design.md) | Layout, navigation, colors, states, responsive behavior                       |
-| [Testing](docs/testing.md)             | Actual execution results, coverage, audit status, limitations                 |
-| [Code review](docs/code-review.md)     | Security, performance, code quality, reuse, resolved issues                   |
-| [AI assistance](docs/ai-use.md)        | AI-assisted work and scope                                                    |
-| [Demo guide](docs/demo-guide.md)       | Short demonstration sequence and explanation questions                        |
+Additional project documentation is available in the `docs` folder.
 
-## Project team
+| Document | Description |
+| --- | --- |
+| [Requirements](docs/requirements.md) | Project requirements and acceptance criteria |
+| [Architecture](docs/architecture.md) | Application architecture, components, data flow, and technology stack |
+| [Visual Design](docs/visual-design.md) | Interface layout, navigation, responsive behavior, and design decisions |
+| [Testing](docs/testing.md) | Test approach, execution results, and coverage information |
+| [Code Review](docs/code-review.md) | Review of security, performance, code quality, and code reuse |
+| [AI Assistance](docs/ai-use.md) | Summary of AI-assisted work used during development |
+| [Demo Guide](docs/demo-guide.md) | Suggested sequence for demonstrating the application |
 
-The About page reads these user-supplied details from `src/data/team.js`:
+## Team
 
-| Full name | Student ID | Repository |
-| --- | --- | --- |
-| ABDULLAH NAIF ALORABI | 222110432 | [222110432-lang/se411_mylabs](https://github.com/222110432-lang/se411_mylabs) |
-| Yousef khalid alyousef | 222110269 | [Yousef-Khalid-Alyousef/SE411_mylabs](https://github.com/Yousef-Khalid-Alyousef/SE411_mylabs) |
+| Student | Student ID |
+| --- | --- |
+| Abdullah Naif Alorabi | 222110432 |
+| Yousef Khalid Alyousef | 222110269 |
 
-The user confirmed that this project has two students on 11 September 2026. The original brief's group size is three; no third team member has been invented.
+## Course Information
 
-## Submission
+**Course:** SE411 – Software Construction  
+**Project:** Part 1 – Frontend Application  
+**University:** Prince Sultan University  
+**Semester:** Fall 2026–27
 
-The assignment requires a **public GitHub repository**, and **only one student submits its repository URL**. The stated deadline is **17 October 2026**.
+## Project Scope
 
-The source, tests, documentation, lockfile, and GitHub workflow belong in the repository. Exclude `node_modules`, generated coverage, environment files, and local runtime files. The supplied `.gitignore` handles those exclusions.
+FleetDesk was developed as the frontend portion of the SE411 project.
 
-The chosen repository is [https://github.com/222110432-lang/se411_mylabs](https://github.com/222110432-lang/se411_mylabs); project source belongs in `Project_Part1`. The repository was verified as public on 11 September 2026. Publication of this prepared project still awaits write access. The team will later submit the repository URL through the course's Part 1 submission page. A working application preview is separate from the required repository URL.
+The Part 1 application satisfies the main project requirements by providing:
+
+- A React-based frontend
+- Navigation between application features
+- Adding records
+- Updating records
+- Removing records
+- Searching records
+- Displaying records
+- An About page containing team information
+- Project documentation
+- Automated testing
+- Code review documentation
+
+The application manages **computer assets** as its selected company asset category.
