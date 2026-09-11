@@ -1,0 +1,36 @@
+name: FleetDesk - test and build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Project_Part1/**'
+      - '.github/workflows/fleetdesk.yml'
+  pull_request:
+    paths:
+      - 'Project_Part1/**'
+      - '.github/workflows/fleetdesk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: Project_Part1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: Project_Part1/package-lock.json
+      - run: npm ci
+      - run: npm run check:submission
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
