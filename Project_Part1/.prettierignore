@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+package-lock.json
+docs/test-results.json
+docs/coverage-summary.json
+docs/dependency-audit.json
+.sites-runtime
