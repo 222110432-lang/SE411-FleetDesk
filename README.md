@@ -5,6 +5,7 @@ FleetDesk is our SE411 Project Part 1, a React-based computer asset management a
 ## Team
 - Abdullah Naif Alorabi —  222110432
 - Yousef Khalid Alyousef —  222110269
+- Bader Emad Alshuraya —  221110016
 
 ## Project
 The complete application, documentation, and tests are located in:
