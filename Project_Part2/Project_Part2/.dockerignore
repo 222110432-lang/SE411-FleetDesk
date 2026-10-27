@@ -1,0 +1,10 @@
+**/node_modules
+**/target
+**/dist
+**/coverage
+backend/data
+data
+**/*.log
+.env
+presentation
+docs
