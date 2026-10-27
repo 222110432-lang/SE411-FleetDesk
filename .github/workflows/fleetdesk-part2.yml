@@ -1,0 +1,46 @@
+name: FleetDesk Part 2 - test and build
+on:
+  push:
+    branches: [main]
+    paths: ['Project_Part2/**', '.github/workflows/fleetdesk-part2.yml']
+  pull_request:
+    paths: ['Project_Part2/**', '.github/workflows/fleetdesk-part2.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: Project_Part2/frontend/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Frontend checks
+        working-directory: Project_Part2/frontend
+        run: |
+          npm ci --no-fund --no-audit
+          npm run lint
+          npm run test:coverage
+          npm run build
+      - name: Backend checks and executable JAR
+        working-directory: Project_Part2/backend
+        run: mvn -B -ntp clean verify
+      - name: Live HTTP and restart check
+        working-directory: Project_Part2
+        run: python3 scripts/smoke.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FleetDesk-Part2
+          path: |
+            Project_Part2/backend/target/fleetdesk.jar
+            Project_Part2/backend/target/site/jacoco/
+            Project_Part2/frontend/coverage/
