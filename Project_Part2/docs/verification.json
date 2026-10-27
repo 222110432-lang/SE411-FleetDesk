@@ -1,0 +1,104 @@
+{
+  "verified_date": "2026-10-27",
+  "backend_suites": [
+    {
+      "name": "edu.se411.fleetdesk.ComputerControllerTest",
+      "tests": "19",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "edu.se411.fleetdesk.ComputerServiceTest",
+      "tests": "18",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "edu.se411.fleetdesk.InventoryIntegrationTest",
+      "tests": "9",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0"
+    }
+  ],
+  "backend_coverage": {
+    "INSTRUCTION": {
+      "covered": 996,
+      "missed": 7
+    },
+    "BRANCH": {
+      "covered": 54,
+      "missed": 1
+    },
+    "LINE": {
+      "covered": 135,
+      "missed": 2
+    },
+    "COMPLEXITY": {
+      "covered": 96,
+      "missed": 2
+    },
+    "METHOD": {
+      "covered": 68,
+      "missed": 1
+    },
+    "CLASS": {
+      "covered": 12,
+      "missed": 0
+    }
+  },
+  "frontend_tests": {
+    "passed": 45,
+    "failed": 0
+  },
+  "frontend_coverage": {
+    "lines": {
+      "total": 276,
+      "covered": 242,
+      "skipped": 0,
+      "pct": 87.68
+    },
+    "statements": {
+      "total": 307,
+      "covered": 264,
+      "skipped": 0,
+      "pct": 85.99
+    },
+    "functions": {
+      "total": 101,
+      "covered": 77,
+      "skipped": 0,
+      "pct": 76.23
+    },
+    "branches": {
+      "total": 266,
+      "covered": 215,
+      "skipped": 0,
+      "pct": 80.82
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "live_http_smoke": [
+    "PASS: packaged frontend and JavaScript bundle served",
+    "PASS: create seven computers with generated IDs and Location headers",
+    "PASS: server pagination, filtered search, and page-size validation",
+    "PASS: exact ID, update, duplicate rejection, validation, and inventory totals",
+    "PASS: confirmed deletion and missing-record response",
+    "PASS: saved changes and deletion survive a full server restart",
+    "All live smoke checks passed."
+  ],
+  "github_upload": "Blocked: integration returned 403 Resource not accessible by integration.",
+  "unverified": [
+    "Windows execution",
+    "Docker/PostgreSQL execution",
+    "Full browser end-to-end test",
+    "Remote GitHub Actions run"
+  ]
+}
