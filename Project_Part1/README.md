@@ -238,6 +238,7 @@ Additional project documentation is available in the `docs` folder.
 | Abdullah Naif Alorabi | 222110432 |
 | Yousef Khalid Alyousef | 222110269 |
 | Bader Emad Alshuraya | 221110016 |
+| Fahad Abdulmohsen Alharbi | 222110987 |
 
 ## Course Information
 
