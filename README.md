@@ -7,6 +7,7 @@ FleetDesk is our SE411 computer asset management application. Part 2 connects th
 - Abdullah Naif Alorabi —  222110432
 - Yousef Khalid Alyousef —  222110269
 - Bader Emad Alshuraya —  221110016
+- Fahad Abdulmohsen Alharbi —  222110987
 
 ## Project
 
