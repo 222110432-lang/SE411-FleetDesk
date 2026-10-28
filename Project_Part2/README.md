@@ -9,6 +9,7 @@ A computer inventory application with a React frontend and a Java Spring Boot RE
 | Abdullah Naif Alorabi | 222110432 |
 | Yousef Khalid Alyousef | 222110269 |
 | Bader Emad Alshuraya | 221110016 |
+| Fahad Abdulmohsen Alharbi | 222110987 |
 
 ## Run on Windows
 
